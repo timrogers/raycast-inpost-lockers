@@ -24,7 +24,7 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.53.3",
+    "@raycast/api": "^1.53.4",
     "@raycast/utils": "^1.5.2",
     "inpost": "^0.3.0",
     "uk-postcode-validator": "^1.1.1"
