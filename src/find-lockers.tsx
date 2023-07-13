@@ -23,7 +23,7 @@ export default function Command() {
         return findLocationsByPostcode(text);
       }
     },
-    [searchText]
+    [searchText],
   );
 
   return (
