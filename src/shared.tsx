@@ -29,24 +29,20 @@ const presentLockerAvailability = (lockerAvailability: LockerAvailabilityLevel):
     default:
       return "-";
   }
-}
+};
 
-export const LocationItem = (props: {
-  location: Location;
-  refreshLocations: () => void;
-}) => {
+export const LocationItem = (props: { location: Location; refreshLocations: () => void }) => {
   const { location, refreshLocations } = props;
 
   const { data: isFavourite, revalidate: reloadFavouriteStatus } = useCachedPromise<
     (locationId: string) => Promise<boolean>
   >(async (locationId: string) => isFavouriteLocationId(locationId), [location.id]);
 
-  const lockerAvailabilityAccessories =
-      [
-        { text: `S: ${presentLockerAvailability(location.smallLockerAvailability)}` },
-        { text: `M: ${presentLockerAvailability(location.mediumLockerAvailability)}` },
-        { text: `L: ${presentLockerAvailability(location.largeLockerAvailability)}` },
-      ];
+  const lockerAvailabilityAccessories = [
+    { text: `S: ${presentLockerAvailability(location.smallLockerAvailability)}` },
+    { text: `M: ${presentLockerAvailability(location.mediumLockerAvailability)}` },
+    { text: `L: ${presentLockerAvailability(location.largeLockerAvailability)}` },
+  ];
 
   const favouriteAccessories = isFavourite ? [{ icon: Icon.Star }] : [];
 
